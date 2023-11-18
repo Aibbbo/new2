@@ -89,11 +89,23 @@
         .dropdown-content a:hover {
             background-color: #ddd;
         }
+
+        /* Стили для блока с информацией */
+        .info-container {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
-    <form action="info_page.html" method="post">
+    <form id="registrationForm">
         <h2>Регистрация</h2>
         
         <label for="username">Имя пользователя:</label>
@@ -118,6 +130,25 @@
         <input type="submit" value="Зарегистрироваться">
     </form>
 
+    <!-- Блок с информацией -->
+    <div class="info-container" id="infoContainer">
+        <h2>Добро пожаловать!</h2>
+        <p>Вы успешно зарегистрировались. Благодарим за использование нашего сервиса.</p>
+        <p>Для получения дополнительной информации, посетите нашу <a href="https://example.com">главную страницу</a>.</p>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function(event) {
+            // Отменяем стандартное поведение формы, чтобы страница не перезагружалась
+            event.preventDefault();
+
+            // Скрываем форму регистрации
+            document.getElementById("registrationForm").style.display = "none";
+            
+            // Отображаем блок с информацией
+            document.getElementById("infoContainer").style.display = "block";
+        });
+    </script>
+
 </body>
 </html>
-
